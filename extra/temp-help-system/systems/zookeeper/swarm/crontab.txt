@@ -1,0 +1,3 @@
+SHELL=/bin/bash
+* * * * * /usr/local/bin/trigger.sh /usr/local/bin/zookeeper-cleanup.sh
+@daily find /var/log/ -name "*.log" -mtime +7 -type f -delete

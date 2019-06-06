@@ -1,0 +1,6 @@
+server.1=172.17.0.3:31100:31101:participant;31102
+server.2=172.17.0.4:31200:31201:participant;31202
+server.3=172.17.0.5:31300:31301:participant;31302
+server.4=172.17.0.6:31400:31401:participant;31402
+server.5=172.17.0.7:31500:31501:participant;31502
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/hbase-module/hbase-module.iml" filepath="$PROJECT_DIR$/hbase-module/hbase-module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/iotpipeline-benchmark.iml" filepath="$PROJECT_DIR$/iotpipeline-benchmark.iml" />
+      <module fileurl="file://$PROJECT_DIR$/main-module/main-module.iml" filepath="$PROJECT_DIR$/main-module/main-module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/storm-module/storm-module.iml" filepath="$PROJECT_DIR$/storm-module/storm-module.iml" />
+    </modules>
+  </component>
+</project>

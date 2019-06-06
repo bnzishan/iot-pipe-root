@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+n=$(($1 + 0))
+
+if [[ "$n" == "0" ]]; then
+    n=3
+fi
+
+image="zk:3.4.10"
+name_prefix=zoo
+listening_port=2888
+election_port=3888
+network=zoo
+labels="--label zookeeper=yes"
+
+gen_cfg() {
+    cp ./zoo.cfg.template ./zoo.cfg
+    for i in $(seq 1 $n); do
+        echo "server.${i}=${name_prefix}${i}:${listening_port}:${election_port}" >> ./zoo.cfg
+    done
+}
+
+gen_id_files() {
+    for i in $(seq 1 $n); do
+        echo "${i}" > myid.${i}
+    done
+}
+
+find_or_create_network() {
+    find=$( docker network ls -f "name=${network}" -q )
+    if [[ "$find" == "" ]]; then
+        docker network create $network
+    fi
+}
+
+start_zk_containers() {
+    data_dir=$(grep dataDir zoo.cfg|cut -d "=" -f 2)
+    client_port=$(grep clientPort zoo.cfg|cut -d "=" -f 2)
+    for i in $(seq 1 $n); do
+        name=${name_prefix}${i}
+        docker run -d \
+               -v `pwd`/myid.${i}:${data_dir}/myid \
+               -v `pwd`/zoo.cfg:"/opt/zookeeper/conf/zoo.cfg" \
+               -p ${client_port} \
+               --network $network \
+               --name "$name" \
+               $labels \
+               "$image" \
+               zkServer.sh start-foreground
+    done
+}
+
+gen_cfg
+
+gen_id_files
+
+find_or_create_network
+
+start_zk_containers

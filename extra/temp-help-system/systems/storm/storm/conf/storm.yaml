@@ -1,0 +1,30 @@
+
+## general configs
+
+storm.local.hostname: "%local.hostname%"
+storm.zookeeper.servers:
+  - "%zookeeper%"
+storm.zookeeper.port: %zookeeper.port%
+#storm.cluster.mode: "%mode%"  #distributed or local
+
+#storm.local.hostname: %local.name%
+
+
+## nimbus: config for master
+
+nimbus.host: "%nimbus%"
+nimbus.thrift.port: %nimbus.thrift.port%
+
+
+drpc.servers:
+  - "%nimbus%"
+drpc.port: %drpc.port%
+drpc.invocations.port: %drpci.port%
+
+
+## ui: config for master
+
+
+## supervisor: config for node supervisors
+# Define the amount of workers that can be run on this machine. Each worker is assigned a port to use for communication
+#supervisor.slots.ports:

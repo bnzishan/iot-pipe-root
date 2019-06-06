@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>streammark-root</artifactId>
+        <groupId>org.hobbit.sdk.streammark</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>streammark-storm</artifactId>
+
+    <description> reusing and extending  http://github.com/mayconbordin/storm-applications and RIoTbm</description>
+
+<dependencies>
+
+    <!--
+   <dependency>
+        <groupId>in.dream_lab.bm.stream_iot</groupId>
+   <artifactId>iot-bm</artifactId>
+   <version>0.1</version>
+     <scope>system</scope>
+   <systemPath>/Users/bushranazir/.m2/repository/com/yahoo/ycsb/core/0.16.0-SNAPSHOT/core-0.16.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+-->
+
+    <!--  RIoTBench -->
+    <dependency>
+        <groupId>in.dream_lab.bm.stream_iot</groupId>
+        <artifactId>iot-bm</artifactId>
+        <version>0.1</version>
+          <scope>system</scope>
+           <systemPath>/Users/bushranazir/.m2/repository/in/dream_lab/bm/stream_iot/iot-bm/0.1/iot-bm-0.1.pom</systemPath>
+    </dependency>
+
+    <dependency>
+        <groupId>in.dream_lab.bm.stream_iot</groupId>
+        <artifactId>iot-bm-tasks</artifactId>
+        <version>0.1</version>
+        <scope>system</scope>
+        <systemPath>/Users/bushranazir/.m2/repository/in/dream_lab/bm/stream_iot/iot-bm-tasks/0.1/iot-bm-tasks-0.1.jar</systemPath>
+    </dependency>
+
+    <dependency>
+        <groupId>in.dream_lab.bm.stream_iot</groupId>
+        <artifactId>iot-bm-storm</artifactId>
+        <version>0.1</version>
+        <scope>system</scope>
+        <systemPath>/Users/bushranazir/.m2/repository/in/dream_lab/bm/stream_iot/iot-bm-storm/0.1/iot-bm-storm-0.1.jar</systemPath>
+    </dependency>
+
+    <!--  bs4dsps - mayconbordin/storm-applications -->
+
+
+</dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+
+                    <execution>
+                        <id>hack-binary-1</id>
+                        <phase>validate</phase>
+                        <configuration>
+                            <file>${basedir}/libs/iot-bm-storm-0.1.jar</file>
+                            <pomFile>${basedir}/libs/iot-bm-storm-0.1.pom</pomFile>
+                            <groupId>in.dream_lab.bm.stream_iot</groupId>
+                            <artifactId>iot-bm-storm</artifactId>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                    </execution>
+
+                    <execution>
+                        <id>hack-binary-2</id>
+                        <phase>validate</phase>
+                        <configuration>
+                            <file>${basedir}/libs/iot-bm-tasks-0.1.jar</file>
+                            <pomFile>${basedir}/libs/iot-bm-tasks-0.1.pom</pomFile>
+                            <groupId>in.dream_lab.bm.stream_iot</groupId>
+                            <artifactId>iot-bm-tasks</artifactId>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                    </execution>
+
+
+                </executions>
+            </plugin>
+        </plugins>
+
+    </build>
+
+
+</project>

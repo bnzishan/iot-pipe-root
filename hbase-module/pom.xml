@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>root</artifactId>
+        <groupId>org.hobbit.sdk.iotpipeline-benchmark</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>hbase-module</artifactId>
+
+    <dependencies>
+    <dependency>
+        <groupId>org.apache.hbase</groupId>
+        <artifactId>hbase-client</artifactId>
+        <version>1.0.2</version>
+        <exclusions>
+            <exclusion>
+                <groupId>jdk.tools</groupId>
+                <artifactId>jdk.tools</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-testing-util</artifactId>
+            <version>1.0.2</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>jdk.tools</groupId>
+                    <artifactId>jdk.tools</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yahoo.ycsb</groupId>
+            <artifactId>core</artifactId>
+            <version>0.16.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>in.dream_lab.bm.stream_iot</groupId>
+            <artifactId>iot-bm-storm</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
+        <!--
+        <dependency>
+            <groupId>com.yahoo.ycsb</groupId>
+            <artifactId>hbase10-binding</artifactId>
+            <version>0.16.0-SNAPSHOT</version>
+        </dependency>
+-->
+
+    </dependencies>
+
+
+
+<build>
+<plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+        </configuration>
+    </plugin>
+
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>2.4</version>
+        <executions>
+
+              <execution>
+                  <id>hack-binary</id>
+                  <phase>validate</phase>
+                  <configuration>
+                      <file>${basedir}/libs/core-0.16.0-SNAPSHOT.jar</file>
+                      <pomFile>${basedir}/libs/core-0.16.0-SNAPSHOT.pom</pomFile>
+                      <groupId>com.yahoo.ycsb</groupId>
+                      <artifactId>core</artifactId>
+                      <packaging>jar</packaging>
+                      <generatePom>true</generatePom>
+                  </configuration>
+                  <goals>
+                      <goal>install-file</goal>
+                  </goals>
+              </execution>
+
+
+              <execution>
+                  <id>hack-binary-2</id>
+                  <phase>validate</phase>
+                  <configuration>
+                      <file>${basedir}/libs/hbase10-binding-0.16.0-SNAPSHOT.jar</file>
+                      <pomFile>${basedir}/libs/hbase10-binding-0.16.0-SNAPSHOT.pom</pomFile>
+                      <groupId>com.yahoo.ycsb</groupId>
+                      <artifactId>hbase10-binding</artifactId>
+                      <packaging>jar</packaging>
+                      <generatePom>true</generatePom>
+                  </configuration>
+                  <goals>
+                      <goal>install-file</goal>
+                  </goals>
+              </execution>
+
+
+        </executions>
+    </plugin>
+</plugins>
+
+</build>
+</project>

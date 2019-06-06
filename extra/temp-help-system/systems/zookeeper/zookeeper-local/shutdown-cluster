@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+docker ps -q --filter "label=zookeeper=yes" | xargs --no-run-if-empty docker stop -t 0
+docker ps -qa --filter "label=zookeeper=yes" | xargs --no-run-if-empty docker rm

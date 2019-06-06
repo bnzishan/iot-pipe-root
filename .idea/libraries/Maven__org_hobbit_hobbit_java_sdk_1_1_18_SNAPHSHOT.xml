@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.hobbit:hobbit-java-sdk:1.1.18-SNAPHSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/hobbit/hobbit-java-sdk/1.1.18-SNAPHSHOT/hobbit-java-sdk-1.1.18-SNAPHSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/hobbit/hobbit-java-sdk/1.1.18-SNAPHSHOT/hobbit-java-sdk-1.1.18-SNAPHSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/hobbit/hobbit-java-sdk/1.1.18-SNAPHSHOT/hobbit-java-sdk-1.1.18-SNAPHSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

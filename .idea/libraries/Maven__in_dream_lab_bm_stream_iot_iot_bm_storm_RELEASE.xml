@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: in.dream_lab.bm.stream_iot:iot-bm-storm:RELEASE">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/in/dream_lab/bm/stream_iot/iot-bm-storm/RELEASE/iot-bm-storm-RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/in/dream_lab/bm/stream_iot/iot-bm-storm/RELEASE/iot-bm-storm-RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/in/dream_lab/bm/stream_iot/iot-bm-storm/RELEASE/iot-bm-storm-RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

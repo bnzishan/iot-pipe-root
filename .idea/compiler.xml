@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="hbase-module" />
+        <module name="main-module" />
+        <module name="storm-module" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hbase-module" target="1.8" />
+      <module name="iotpipeline-benchmark" target="1.5" />
+      <module name="main-module" target="1.8" />
+      <module name="storm-module" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
